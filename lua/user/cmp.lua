@@ -3,6 +3,11 @@ if not cmp_status_ok then
   return
 end
 
+local cmp_autopairs_status_ok, npairs = pcall(require, "nvim-autopairs.completion.cmp")
+if not cmp_autopairs_status_ok then
+  print("Error! Autopairs not loaded!")
+end
+
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
   return
@@ -52,6 +57,8 @@ cmp.setup({
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -62,7 +69,7 @@ cmp.setup({
     }),
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<CR>"] = cmp.mapping.confirm({ select = false }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.confirm({ select = true })
@@ -92,6 +99,9 @@ cmp.setup({
     --  "s",
     --}),
   },
+  window = {
+    documentation = cmp.config.window.bordered(),
+  },
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
@@ -111,19 +121,22 @@ cmp.setup({
   sources = {
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
+    { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-    { name = "luasnip" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
+  -- documentation = {
+  --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  -- },
+  -- window.documentation = "native",
   experimental = {
     ghost_text = false,
     native_menu = false,
   },
 })
+
+cmp.event:on("confirm_done", npairs.on_confirm_done({ map_char = { tex = "" } }))

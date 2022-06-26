@@ -25,7 +25,9 @@ dashboard.section.buttons.val = {
 local function footer()
   -- NOTE: requires the fortune-mod package to work
   local handle = io.popen("fortune")
+---@diagnostic disable-next-line: need-check-nil
   local fortune = handle:read("*a")
+---@diagnostic disable-next-line: need-check-nil
   handle:close()
   return fortune
   -- return "xxx"

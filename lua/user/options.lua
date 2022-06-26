@@ -30,7 +30,6 @@ local options = {
   incsearch = true, -- highlight match while typing search pattern
   updatetime = 300, -- faster completion
   completeopt = "menuone,noselect",
-  foldenable = true, -- set to display all folds open
   pastetoggle = "<Insert>",
   clipboard = "unnamedplus",
   number = true,
@@ -39,18 +38,23 @@ local options = {
   colorcolumn = "+1", -- colorcolumn after textwidth
   cursorline = true,
   conceallevel = 0,
-  foldcolumn = "auto", -- width of the column used to indicate folds
   wrap = false,
   scrolloff = 8,
   tabstop = 4, -- number of spaces that <Tab> in file uses
-  softtabstop = 4,
-  shiftwidth = 4, -- number of spaces to use for (auto)indent step
+  softtabstop = 2,
+  shiftwidth = 2, -- number of spaces to use for (auto)indent step
   expandtab = true, -- use spaces when <Tab> is inserted
   modeline = true, -- recognize modelines at start or end of file
   textwidth = 112,
   lazyredraw = false, -- don't redraw while executing macros
   splitbelow = true, -- force all horizontal splits to go below current window
   splitright = true, -- force all verical splits to go below current window
+  foldcolumn = "auto", -- width of the column used to indicate folds
+  foldenable = true, -- set to display all folds open
+  foldmethod = "indent",
+  foldlevel = 0,
+  foldnestmax = 10,
+  foldlevelstart = 1,
 }
 
 vim.opt.shortmess:append("c")
@@ -59,20 +63,8 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.cmd([[
-
-autocmd BufEnter *.py set tabstop=8 shiftwidth=4 softtabstop=4
-
-autocmd BufEnter *.js,*.html,*.css,Dockerfile,*.yml,*.md,.vimrc,.zshrc,*.sh,*.json,*.vim,*.lua
-       \ set tabstop=2 |
-       \ set softtabstop=2 |
-       \ set shiftwidth=2 |
-
-]])
-
 -- vim.o.cmdheight = 2
 
---autoindent
 --set foldmethod=indent
 --set foldlevel=0
 --set foldnestmax=1

@@ -46,3 +46,9 @@ keymap("n", "[b", ":BufferLineCyclePrev<CR>", opts)
 ---- Term keymaps ----
 keymap("t", "<Esc>", "<C-\\><C-n>", termopts)
 ---- **** ----
+
+---- Term keymaps ----
+-- keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+-- keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+-- keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+---- **** ----

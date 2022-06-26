@@ -103,6 +103,8 @@ telescope.setup({
   --},
 })
 
+telescope.load_extension("flutter")
+
 local M = {}
 
 M.buffers = function(opts)

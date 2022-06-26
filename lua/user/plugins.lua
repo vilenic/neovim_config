@@ -11,7 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "https://github.com/wbthomason/packer.nvim",
     install_path,
   })
-  print("Installing packer close and reopen Neovim...")
+  print("Installing packer -> close and reopen Neovim...")
   vim.cmd([[packadd packer.nvim]])
 end
 
@@ -49,23 +49,15 @@ return packer.startup(function(use)
   use({
     "kyazdani42/nvim-tree.lua",
     requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("nvim-tree").setup({
-        auto_close = false,
-        view = {
-          number = true,
-          relativenumer = true,
-        },
-        diagnostics = {
-          enable = true,
-        },
-      })
-    end,
   })
 
   -- Colorschemes
   use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
   use("EdenEast/nightfox.nvim")
+  use("folke/lsp-colors.nvim")
+  use("marko-cerovac/material.nvim")
+  use("rmehri01/onenord.nvim")
+  use("sainnhe/everforest")
 
   -- CMP
   use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -77,11 +69,14 @@ return packer.startup(function(use)
   use("hrsh7th/cmp-nvim-lua") -- lua completion
 
   -- Git
-  use "lewis6991/gitsigns.nvim"
+  use("lewis6991/gitsigns.nvim")
+
+  use("akinsho/toggleterm.nvim")
 
   -- snippets
   use("L3MON4D3/LuaSnip") -- snippet engine
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+  use("Alexisvt/flutter-snippets") -- dart/flutter snippets
 
   -- LSP
   use("neovim/nvim-lspconfig") -- enable LSP
@@ -90,14 +85,17 @@ return packer.startup(function(use)
   use({
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup({
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      })
-    end,
   })
+
+  -- Debugging
+  -- use("puremourning/vimspector")
+  use("mfussenegger/nvim-dap")
+  use({
+    "rcarriga/nvim-dap-ui",
+    requires = { "mfussenegger/nvim-dap" },
+    commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7",
+  })
+  use({ "ravenxrz/DAPInstall.nvim" })
 
   -- MISC
   use("psliwka/vim-smoothie") -- smooth scrolling
@@ -113,6 +111,7 @@ return packer.startup(function(use)
   })
 
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+  use({ "nvim-treesitter/playground" })
 
   use({
     "nvim-telescope/telescope.nvim",
@@ -141,6 +140,10 @@ return packer.startup(function(use)
   use("phaazon/hop.nvim")
 
   use("ahmedkhalf/project.nvim")
+
+  use("lukas-reineke/indent-blankline.nvim")
+
+  use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

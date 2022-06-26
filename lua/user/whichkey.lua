@@ -87,6 +87,14 @@ local mappings = {
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+
+  d = {
+    name = "Debugging",
+    f = { "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", "Flutter tools" },
+    b = { "<cmd>DapToggleBreakpoint<CR>", "Toggle breakpoint" },
+    d = { "<cmd>DapContinue<CR> ", "Start/Continue" },
+  },
+
   e = {
     name = "Explorer",
     e = {
@@ -98,10 +106,11 @@ local mappings = {
       "Find file",
     },
   },
+
   f = {
     name = "Telescope",
     f = {
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "<cmd>lua require('telescope.builtin').find_files({hidden = true}, require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Find files",
     },
     b = {
@@ -182,6 +191,7 @@ local mappings = {
     h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Symbol Info" },
     g = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
   },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -192,24 +202,21 @@ local mappings = {
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
+
   ["<leader>"] = {
     name = "Leader",
     j = { "<cmd>HopLine<cr>", "Jump to line" },
     f = { "<cmd>HopChar1CurrentLine<cr>", "Jump to char in line" },
-    k = { "<cmd>HopChar1<cr>", "Jump to any char" },
+    k = { "<cmd>HopChar2<cr>", "Jump to any char" },
     s = { "<cmd>luafile %<cr>", "Source lua file" },
   },
 
-  -- t = {
-  --   name = "Terminal",
-  --   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-  --   u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-  --   t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-  --   p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-  --   f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-  --   h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-  --   v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-  -- },
+  t = {
+    name = "Terminal",
+    t = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+    h = { "<cmd>ToggleTerm size=33 direction=horizontal<cr>", "Horizontal" },
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
 }
 
 local vopts = {
