@@ -1,7 +1,7 @@
 local indent_blankline_status_ok, indent_blankline = pcall(require, "indent_blankline")
 
 if not indent_blankline_status_ok then
-  print("indent_blankline failed to load...")
+  vim.notify("indent_blankline failed to load...")
 end
 
 indent_blankline.setup({

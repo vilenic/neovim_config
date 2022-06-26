@@ -1,6 +1,6 @@
 local status_ok, trouble = pcall(require, "trouble")
 if not status_ok then
-  print("Error loading Trouble")
+  vim.notify("Error loading Trouble")
 end
 
 local opts = {

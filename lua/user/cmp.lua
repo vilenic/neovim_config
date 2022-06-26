@@ -5,7 +5,7 @@ end
 
 local cmp_autopairs_status_ok, npairs = pcall(require, "nvim-autopairs.completion.cmp")
 if not cmp_autopairs_status_ok then
-  print("Error! Autopairs not loaded!")
+  vim.notify("Error! Autopairs not loaded!")
 end
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")

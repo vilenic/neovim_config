@@ -1,6 +1,6 @@
 local dap_install_status_ok, dap_install = pcall(require, "dap-install")
 if not dap_install_status_ok then
-  print("dap_install problem")
+  vim.notify("dap-install could not be loaded")
 end
 
 local dap_status_ok, dap = pcall(require, "dap")
@@ -13,7 +13,7 @@ if not dap_ui_status_ok then
   return
 end
 
--- local flutter_path = os.getenv("HOME") .. "/Code/sdks/flutter"
+local paths = require("user.paths")
 
 dap_install.setup({})
 
@@ -24,15 +24,15 @@ dap_install.config("dart", {})
 dap.adapters.dart = {
   type = "executable",
   command = "node",
-  args = {DART_CODE_DEBUGGER_PATH, "flutter" },
+  args = {paths.DART_CODE_DEBUGGER_PATH, "flutter" },
 }
 dap.configurations.dart = {
   {
     type = "dart",
     request = "launch",
     name = "Launch flutter",
-    dartSdkPath = DART_SDK_PATH,
-    flutterSdkPath = FLUTTER_SDK_PATH,
+    dartSdkPath = paths.DART_SDK_PATH,
+    flutterSdkPath = paths.FLUTTER_SDK_PATH,
     program = "${workspaceFolder}/lib/main.dart",
     cwd = "${workspaceFolder}",
   },

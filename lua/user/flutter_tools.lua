@@ -1,8 +1,10 @@
 local dap_status_ok, dap = pcall(require, "dap")
 
 if not dap_status_ok then
-  print("dap failed to load in flutter-tools...")
+  vim.notify("dap failed to load in flutter-tools...")
 end
+
+local paths = require("user.paths")
 
 require("flutter-tools").setup({
   debugger = { -- integrate with nvim dap + install dart code debugger
@@ -12,15 +14,15 @@ require("flutter-tools").setup({
       dap.adapters.dart = {
         type = "executable",
         command = "node",
-        args = { DART_CODE_DEBUGGER_PATH, "flutter" },
+        args = { paths.DART_CODE_DEBUGGER_PATH, "flutter" },
       }
       dap.configurations.dart = {
         {
           type = "dart",
           request = "launch",
           name = "Launch flutter",
-          dartSdkPath = DART_SDK_PATH,
-          flutterSdkPath = FLUTTER_SDK_PATH,
+          dartSdkPath = paths.DART_SDK_PATH,
+          flutterSdkPath = paths.FLUTTER_SDK_PATH,
           program = "${workspaceFolder}/lib/main.dart",
           cwd = "${workspaceFolder}",
         },

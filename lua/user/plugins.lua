@@ -11,7 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "https://github.com/wbthomason/packer.nvim",
     install_path,
   })
-  print("Installing packer -> close and reopen Neovim...")
+  vim.notify("Installing packer -> close and reopen Neovim...")
   vim.cmd([[packadd packer.nvim]])
 end
 
@@ -26,7 +26,7 @@ vim.cmd([[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  print("Error while loading packer")
+  vim.notify("Error while loading packer")
   return
 end
 
@@ -79,6 +79,7 @@ return packer.startup(function(use)
   use("Alexisvt/flutter-snippets") -- dart/flutter snippets
 
   -- LSP
+  use("RRethy/vim-illuminate")
   use("neovim/nvim-lspconfig") -- enable LSP
   use("williamboman/nvim-lsp-installer") -- simple to use language server installer
   use("jose-elias-alvarez/null-ls.nvim") -- linting and formatting
@@ -88,13 +89,14 @@ return packer.startup(function(use)
   })
 
   -- Debugging
-  -- use("puremourning/vimspector")
   use("mfussenegger/nvim-dap")
+
   use({
     "rcarriga/nvim-dap-ui",
     requires = { "mfussenegger/nvim-dap" },
     commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7",
   })
+
   use({ "ravenxrz/DAPInstall.nvim" })
 
   -- MISC
@@ -118,15 +120,14 @@ return packer.startup(function(use)
     requires = { "nvim-lua/plenary.nvim" },
   })
 
-  use({
-    "goolord/alpha-nvim",
-    -- config = function ()
-    --     require'alpha'.setup(require'alpha.themes.startify'.opts)
-    -- end
-  })
+  use({ "nvim-telescope/telescope-dap.nvim" })
+
+  use({ "goolord/alpha-nvim" })
+
   use("lewis6991/impatient.nvim")
 
-  use({ "numToStr/Comment.nvim" }) -- Comment
+  -- Comment
+  use({ "numToStr/Comment.nvim" })
 
   use("folke/which-key.nvim")
 
@@ -135,13 +136,14 @@ return packer.startup(function(use)
   use("windwp/nvim-autopairs")
 
   use("tpope/vim-repeat")
-  -- use "ggandor/lightspeed.nvim"
 
   use("phaazon/hop.nvim")
 
   use("ahmedkhalf/project.nvim")
 
   use("lukas-reineke/indent-blankline.nvim")
+
+  -- FLUTTER
 
   use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
 

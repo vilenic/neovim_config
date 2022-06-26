@@ -1,7 +1,7 @@
 local nvim_tree_status_ok, nvim_tree = pcall(require, "nvim-tree")
 
 if not nvim_tree_status_ok then
-  print("NvimTree could not be loaded...")
+  vim.notify("NvimTree could not be loaded...")
 end
 
 nvim_tree.setup({

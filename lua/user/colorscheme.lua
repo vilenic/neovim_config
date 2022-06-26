@@ -1,13 +1,13 @@
 local M = {
   -- local colorscheme = "gruvbox"
   -- colorscheme = "onenord",
-  colorscheme = 'everforest'
+  colorscheme = "everforest",
   -- local colorscheme = "nightfox"
   -- local colorscheme = "material"
 }
 
--->> Material options <<--
-vim.g.material_style = "palenight"
+-->> Colorscheme options <<--
+-- vim.g.material_style = "palenight"
 vim.g.everforest_background = "medium"
 vim.g.everforest_better_performance = 1
 ----

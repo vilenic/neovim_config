@@ -1,6 +1,6 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-  print("Error while loading telescope")
+  vim.notify("Error while loading telescope")
 end
 
 local actions = require("telescope.actions")
@@ -104,6 +104,7 @@ telescope.setup({
 })
 
 telescope.load_extension("flutter")
+telescope.load_extension('dap')
 
 local M = {}
 

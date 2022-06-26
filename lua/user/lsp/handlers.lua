@@ -58,6 +58,8 @@ M.on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
+  require("illuminate").on_attach(client)
+
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

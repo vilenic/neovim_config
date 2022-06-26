@@ -1,6 +1,6 @@
 local status_ok, project = pcall(require, "project_nvim")
 if not status_ok then
-  print("Error while loading project_nvim")
+  vim.notify("Error while loading project_nvim")
   return
 end
 
