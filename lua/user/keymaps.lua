@@ -1,6 +1,6 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-local termopts = { silent = true }
+-- local termopts = { silent = true }
 
 ---- VIM SPECIFIC ----
 -- Remap space as leader key
@@ -15,8 +15,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 --
-
-keymap("n", "<Leader>bd", ":Bdelete<CR>", opts) -- delete active buffer
 
 -- While in visual mode, indent selected text and keep it selected
 keymap("v", "<", "<gv", opts)
@@ -44,11 +42,5 @@ keymap("n", "[b", ":BufferLineCyclePrev<CR>", opts)
 ---- **** ----
 
 ---- Term keymaps ----
-keymap("t", "<Esc>", "<C-\\><C-n>", termopts)
----- **** ----
-
----- Term keymaps ----
--- keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
--- keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
--- keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+-- keymap("t", "<Esc>", "<C-\\><C-n>", termopts)
 ---- **** ----

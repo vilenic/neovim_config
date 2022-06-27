@@ -24,7 +24,7 @@ dap_install.config("dart", {})
 dap.adapters.dart = {
   type = "executable",
   command = "node",
-  args = {paths.DART_CODE_DEBUGGER_PATH, "flutter" },
+  args = { paths.DART_CODE_DEBUGGER_PATH, "flutter" },
 }
 dap.configurations.dart = {
   {
@@ -38,21 +38,38 @@ dap.configurations.dart = {
   },
 }
 
-
 dapui.setup({
-  sidebar = {
-    elements = {
-      {
-        id = "scopes",
-        size = 0.25, -- Can be float or integer > 1
+  layouts = {
+    {
+      elements = {
+        "scopes",
+        "breakpoints",
+        "stacks",
+        "watches",
       },
-      { id = "breakpoints", size = 0.25 },
+      size = 40,
+      position = "right",
     },
-    size = 40,
-    position = "right", -- Can be "left", "right", "top", "bottom"
   },
-  tray = {
-    elements = {},
+  {
+    elements = {
+      "repl",
+      "console",
+    },
+    size = 10,
+    position = "bottom",
+  },
+  floating = {
+    max_height = nil, -- These can be integers or a float between 0 and 1.
+    max_width = nil, -- Floats will be treated as percentage of your screen.
+    border = "rounded", -- Border style. Can be "single", "double" or "rounded"
+    mappings = {
+      close = { "q", "<Esc>" },
+    },
+  },
+  windows = { indent = 1 },
+  render = {
+    max_type_length = nil, -- Can be integer or nil.
   },
 })
 

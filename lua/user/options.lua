@@ -49,12 +49,12 @@ local options = {
   lazyredraw = false, -- don't redraw while executing macros
   splitbelow = true, -- force all horizontal splits to go below current window
   splitright = true, -- force all verical splits to go below current window
-  foldcolumn = "auto", -- width of the column used to indicate folds
+  foldcolumn = "0", -- width of the column used to indicate folds
   foldenable = true, -- set to display all folds open
   foldmethod = "indent",
   foldlevel = 0,
   foldnestmax = 10,
-  foldlevelstart = 1,
+  foldlevelstart = 10,
 }
 
 vim.opt.shortmess:append("c")
