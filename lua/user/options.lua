@@ -55,6 +55,7 @@ local options = {
   foldlevel = 0,
   foldnestmax = 10,
   foldlevelstart = 10,
+  foldminlines = 20,
 }
 
 vim.opt.shortmess:append("c")

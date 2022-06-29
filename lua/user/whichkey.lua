@@ -87,12 +87,14 @@ local mappings = {
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
+  ["z"] = { "<cmd>lua require('maximize').toggle()<cr>", "Maximize toggle" },
 
   d = {
     name = "Debugging",
     f = { "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", "Flutter tools" },
     b = { "<cmd>DapToggleBreakpoint<CR>", "Toggle breakpoint" },
     d = { "<cmd>DapContinue<CR> ", "Start/Continue" },
+    v = { "<cmd>DapVirtualTextToggle<CR> ", "DAP VirtualText toggle" },
   },
 
   e = {

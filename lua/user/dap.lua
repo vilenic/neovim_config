@@ -13,6 +13,11 @@ if not dap_ui_status_ok then
   return
 end
 
+local dap_virt_text_status_ok, dap_virt_text = pcall(require, "nvim-dap-virtual-text")
+if not dap_virt_text_status_ok then
+  vim.notify("Dap virtual text could not be loaded")
+end
+
 local paths = require("user.paths")
 
 dap_install.setup({})
@@ -48,7 +53,7 @@ dapui.setup({
         "watches",
       },
       size = 40,
-      position = "right",
+      position = "left",
     },
   },
   {
@@ -86,3 +91,7 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+dap_virt_text.setup({
+  commented = true,
+})

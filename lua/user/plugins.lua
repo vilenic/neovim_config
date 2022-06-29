@@ -33,7 +33,7 @@ end
 -- Have packer use a popup window
 packer.init({
   snapshot_path = vim.fn.stdpath("config") .. "/snapshots",
-  snapshot = "stable_27_06_22",
+  -- snapshot = "28_06_22",
   display = {
     open_fn = function()
       return require("packer.util").float({ border = "rounded" })
@@ -97,6 +97,7 @@ return packer.startup(function(use)
   })
 
   use({ "ravenxrz/DAPInstall.nvim" })
+  use({ "theHamsta/nvim-dap-virtual-text" })
 
   -- MISC
   use({ "psliwka/vim-smoothie" }) -- smooth scrolling

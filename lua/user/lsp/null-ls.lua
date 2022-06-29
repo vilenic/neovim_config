@@ -14,7 +14,7 @@ null_ls.setup({
   sources = {
     formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
-    formatting.dart_format.with({ extra_args = { "--line-length", format_line_length } }),
+    formatting.dart_format.with({ extra_args = { "--line-length", format_line_length, "--fix" } }),
     formatting.stylua,
     diagnostics.flake8,
   },
