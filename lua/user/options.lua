@@ -18,7 +18,7 @@ local options = {
   wildmenu = true,
   pumheight = 10, -- pop up menu height
   showtabline = 2, -- always show tabs
-  hidden = true, -- hide buffers instead of closing them
+  hidden = false, -- hide buffers instead of closing them
   showcmd = false,
   langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz",
   ignorecase = true, -- ignore case in search patterns
@@ -56,6 +56,7 @@ local options = {
   foldnestmax = 10,
   foldlevelstart = 10,
   foldminlines = 20,
+  sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal",
 }
 
 vim.opt.shortmess:append("c")

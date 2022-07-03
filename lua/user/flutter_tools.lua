@@ -15,7 +15,7 @@ require("flutter-tools").setup({
       -- set to true to be able use the 'flutter_tools_decorations.device' in your statusline
       -- this will show the currently running device if an application was started with a specific
       -- device
-      device = true,
+      device = false,
     },
   },
   debugger = { -- integrate with nvim dap + install dart code debugger
@@ -39,6 +39,10 @@ require("flutter-tools").setup({
         },
       }
     end,
+  },
+  dev_log = {
+    enabled = false,
+    open_cmd = "tabedit", -- command to use to open the log buffer
   },
   lsp = {
     color = { -- show the derived colours for dart variables
