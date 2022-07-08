@@ -107,6 +107,10 @@ local mappings = {
       "<cmd>NvimTreeFindFile<cr>",
       "Find file",
     },
+    s = {
+      "<cmd>:Telescope session-lens search_session<cr>",
+      "Sessions",
+    },
   },
 
   f = {
@@ -171,8 +175,8 @@ local mappings = {
       "Workspace Diagnostics",
     },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-    i = { "<cmd>LspInfo<cr>", "Info" },
-    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    i = { "<cmd>LspInfo<cr>", "LSP Info" },
+    I = { "<cmd>LspInstallInfo<cr>", "LSP Installer Info" },
     j = {
       "<cmd>lua vim.diagnostic.goto_next()<CR>",
       "Next Diagnostic",
@@ -192,6 +196,8 @@ local mappings = {
     },
     h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Symbol Info" },
     g = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+    e = { "<cmd>Telescope lsp_references<cr>", "LSP references" },
+    c = { "<cmd>Telescope lsp_definitions<cr>", "LSP definition" },
   },
 
   s = {

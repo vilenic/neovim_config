@@ -7,4 +7,5 @@ end
 auto_session.setup({
   log_level = "info",
   auto_session_suppress_dirs = { "~/", "~/Projects" },
+  auto_restore_enabled = false,
 })

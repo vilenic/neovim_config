@@ -68,3 +68,6 @@ config.setup({
   --@type fun(ctx: Ctx)
   post_hook = nil,
 })
+
+local comment_ft = require("Comment.ft")
+comment_ft.set("dart", { "// %s", "/*%s*/" })
