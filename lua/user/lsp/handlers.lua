@@ -52,17 +52,19 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = true
   end
   if client.name == "sumneko_lua" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = true
   end
   if client.name == "dartls" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = true
   end
+  -- if client.name == "rust_analyzer" then
+  --   client.server_capabilities.document_formatting = true
+  -- end
   lsp_keymaps(bufnr)
-  require("illuminate").on_attach(client)
-
+  -- require("illuminate").on_attach(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -72,7 +74,7 @@ if not status_ok then
   return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M
 

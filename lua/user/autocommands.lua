@@ -21,7 +21,6 @@ autocmd BufEnter *.py set tabstop=8 shiftwidth=4 softtabstop=4
 "        \ set softtabstop=2 |
 "        \ set shiftwidth=2 |
 
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+" autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 
 ]])
-

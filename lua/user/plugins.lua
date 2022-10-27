@@ -47,7 +47,7 @@ return packer.startup(function(use)
   --
   use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
   use({ "nvim-lua/popup.nvim" }) -- An implementation of the Popup API from vim in Neovim
-  use({ "nvim-lua/plenary.nvim" }) -- Useful lua functions used ny lots of plugins
+  use({ "nvim-lua/plenary.nvim" }) -- Useful lua functions used in lots of plugins
 
   use({
     "kyazdani42/nvim-tree.lua",
@@ -80,14 +80,19 @@ return packer.startup(function(use)
   use({ "Alexisvt/flutter-snippets" }) -- dart/flutter snippets
 
   -- LSP
-  use({ "RRethy/vim-illuminate" })
+  -- use({ "RRethy/vim-illuminate" })
   use({ "neovim/nvim-lspconfig" }) -- enable LSP
+
   use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+  use { "williamboman/mason.nvim" } -- future of nvim-lsp-installer
+  use({ "williamboman/mason-lspconfig.nvim" })
+
   use({ "jose-elias-alvarez/null-ls.nvim" }) -- linting and formatting
   use({
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
   })
+  use({ "simrat39/rust-tools.nvim" }) -- rust tools
 
   -- Debugging
   use({ "mfussenegger/nvim-dap" })

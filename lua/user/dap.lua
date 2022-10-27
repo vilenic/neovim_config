@@ -49,20 +49,26 @@ dapui.setup({
       elements = {
         "scopes",
         "breakpoints",
-        "stacks",
-        "watches",
       },
       size = 40,
       position = "left",
     },
-  },
-  {
-    elements = {
-      "repl",
-      "console",
+    {
+      elements = {
+        "stacks",
+        "watches",
+      },
+      size = 40,
+      position = "right",
     },
-    size = 10,
-    position = "bottom",
+    {
+      elements = {
+        "console",
+        "repl",
+      },
+      size = 10,
+      position = "bottom",
+    },
   },
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.
@@ -78,7 +84,8 @@ dapui.setup({
   },
 })
 
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+-- 
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()

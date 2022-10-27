@@ -91,9 +91,12 @@ local mappings = {
 
   d = {
     name = "Debugging",
-    f = { "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", "Flutter tools" },
+    q = { "<cmd>DapTerminate<CR>", "Terminate debug session" },
     b = { "<cmd>DapToggleBreakpoint<CR>", "Toggle breakpoint" },
     d = { "<cmd>DapContinue<CR> ", "Start/Continue" },
+    s = { "<cmd>DapStepInto<CR> ", "Step Into" },
+    o = { "<cmd>DapStepOut<CR> ", "Step Out" },
+    n = { "<cmd>DapStepOver<CR> ", "Step Over" },
     v = { "<cmd>DapVirtualTextToggle<CR> ", "DAP VirtualText toggle" },
   },
 
@@ -163,6 +166,18 @@ local mappings = {
     },
   },
 
+  u = {
+    name = "Utilites",
+    f = { "<cmd>lua require('telescope').extensions.flutter.commands()<CR>", "Flutter tools" },
+    r = {
+      name = "Rust tools",
+      r = {"<cmd>RustRunnables<CR>", "Runnables"},
+      d = {"<cmd>RustDebuggables<CR>", "Runnables"},
+      h = {"<cmd>lua require('rust-tools').inlay_hints.enable()<CR>", "Set inlay hints"},
+      e = {"<cmd>lua require('rust-tools').inlay_hints.disable()<CR>", "Set inlay hints"},
+    }
+  },
+
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -174,7 +189,7 @@ local mappings = {
       "<cmd>TroubleToggle workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "LSP Info" },
     I = { "<cmd>LspInstallInfo<cr>", "LSP Installer Info" },
     j = {
