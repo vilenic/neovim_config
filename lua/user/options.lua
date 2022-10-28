@@ -60,6 +60,7 @@ local options = {
 }
 
 vim.opt.shortmess:append("c")
+vim.o.guifont = "JetBrainsMono Nerd Font Mono:h18"
 
 for k, v in pairs(options) do
   vim.opt[k] = v
