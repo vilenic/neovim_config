@@ -38,6 +38,13 @@ require('illuminate').configure({
     providers_regex_syntax_allowlist = {},
     -- under_cursor: whether or not to illuminate under the cursor
     under_cursor = false,
+    large_file_cutoff = nil,
+    -- large_file_config: config to use for large files (based on large_file_cutoff).
+    -- Supports the same keys passed to .configure
+    -- If nil, vim-illuminate will be disabled for large files.
+    large_file_overrides = nil,
+    -- min_count_to_highlight: minimum number of matches required to perform highlighting
+    min_count_to_highlight = 1,
 })
 
 -- vim.api.nvim_set_keymap(

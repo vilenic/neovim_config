@@ -81,7 +81,7 @@ return packer.startup(function(use)
   use({ "Alexisvt/flutter-snippets" }) -- dart/flutter snippets
 
   -- LSP
-  -- use({ "RRethy/vim-illuminate" })
+  use({ "RRethy/vim-illuminate" })
   use({ "neovim/nvim-lspconfig" }) -- enable LSP
 
   use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
