@@ -55,12 +55,13 @@ return packer.startup(function(use)
   })
 
   -- Colorschemes
-  use({ "ellisonleao/gruvbox.nvim", requires = { "rktjmp/lush.nvim" } })
+  use({ "rktjmp/lush.nvim" })
   use({ "EdenEast/nightfox.nvim" })
   use({ "folke/lsp-colors.nvim" })
   use({ "marko-cerovac/material.nvim" })
   use({ "rmehri01/onenord.nvim" })
   use({ "sainnhe/everforest" })
+  use({ "sainnhe/gruvbox-material" })
 
   -- CMP
   use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -84,7 +85,7 @@ return packer.startup(function(use)
   use({ "neovim/nvim-lspconfig" }) -- enable LSP
 
   use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
-  use { "williamboman/mason.nvim" } -- future of nvim-lsp-installer
+  use({ "williamboman/mason.nvim" }) -- future of nvim-lsp-installer
   use({ "williamboman/mason-lspconfig.nvim" })
 
   use({ "jose-elias-alvarez/null-ls.nvim" }) -- linting and formatting
@@ -157,6 +158,25 @@ return packer.startup(function(use)
   use({ "rmagatti/session-lens" })
 
   use({ "stevearc/dressing.nvim" })
+
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  })
+
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({})
+    end,
+  })
+
+  use({ "Pocco81/true-zen.nvim" })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

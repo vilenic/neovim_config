@@ -144,7 +144,7 @@ cmp.setup({
   -- },
   -- window.documentation = "native",
   experimental = {
-    ghost_text = true,
+    ghost_text = false,
     native_menu = false,
   },
 })

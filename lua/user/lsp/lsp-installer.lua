@@ -20,15 +20,22 @@ if not lspconfig_status_ok then
   return
 end
 
+
+-- LSP installer
+
+lsp_installer.setup()
+
 local servers = {
   "rust_analyzer",
   "pyright",
   "sumneko_lua",
   "tsserver",
   "taplo",
+  "yamlls",
+  "bashls",
+  "jsonls",
+  "marksman",
 }
-
-lsp_installer.setup()
 
 local opts = {}
 
@@ -48,15 +55,15 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
   end
 
+  if server == "pyright" then
+    local pyright_opts = require("user.lsp.settings.pyright")
+    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+  end
+
   if server == "rust_analyzer" then
     local rust_opts = require("user.lsp.settings.rust").opts
     require("rust-tools").setup(rust_opts)
     goto continue
-  end
-
-  if server == "pyright" then
-    local pyright_opts = require("user.lsp.settings.pyright")
-    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
   lspconfig[server].setup(opts)

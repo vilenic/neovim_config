@@ -39,8 +39,8 @@ keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
 ---- Bufferline ----
 -- keymap("n", "]b", ":BufferLineCycleNext<CR>", opts)
 -- keymap("n", "[b", ":BufferLineCyclePrev<CR>", opts)
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<M-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<M-h>", ":BufferLineCyclePrev<CR>", opts)
 ---- **** ----
 
 ---- Term keymaps ----

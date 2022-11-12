@@ -87,7 +87,8 @@ local mappings = {
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
-  ["z"] = { "<cmd>lua require('maximize').toggle()<cr>", "Maximize toggle" },
+  -- ["z"] = { "<cmd>lua require('maximize').toggle()<cr>", "Maximize toggle" },
+  ["m"] = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown Preview" },
 
   d = {
     name = "Debugging",
@@ -239,6 +240,12 @@ local mappings = {
     t = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=33 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
+  z = {
+    name = "Zen",
+    z = { "<cmd>TZAtaraxis<cr>", "Classic Zen" },
+    f = { "<cmd>TZFocus<cr>", "Focus" },
+    m = { "<cmd>TZMinimalist<cr>", "Minimalist" },
   },
 }
 
